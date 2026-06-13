@@ -1,0 +1,16 @@
+button {
+  color: white;
+  background-color: blue;
+  width: max-content;
+  height: max-content;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: scale 0.1s ease-in-out;
+}
+
+button:active {
+  scale: 0.95;
+}

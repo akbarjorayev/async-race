@@ -1,0 +1,51 @@
+.car_track_info {
+  gap: 0;
+}
+
+.car_select {
+  margin: 0;
+  width: 10px;
+}
+
+.car_track_car_line {
+  width: calc(100% - 60px);
+  position: relative;
+  padding-left: 55px;
+}
+
+.car_track_lines {
+  & hr {
+    width: calc(100% - 120px);
+    border: 2px solid gray;
+
+    &:first-child {
+      width: 50px;
+    }
+
+    &:last-child {
+      width: 45px;
+    }
+  }
+}
+
+.car_icon {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}
+
+.car_button {
+  width: 10px;
+  aspect-ratio: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & * {
+    width: 60%;
+    height: 60%;
+  }
+}
