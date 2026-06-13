@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "site": "async-race-akbar",
+    "public": "out",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

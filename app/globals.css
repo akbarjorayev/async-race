@@ -1,0 +1,12 @@
+@import '../styles/list.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

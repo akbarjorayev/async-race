@@ -1,0 +1,10 @@
+.list_x {
+  display: flex;
+  gap: 8px;
+}
+
+.list_y {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
