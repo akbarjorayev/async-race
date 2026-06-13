@@ -1,12 +1,13 @@
 'use client'
 
+import { Suspense } from 'react'
 import Link from 'next/link'
 import Button from '@/components/Button/Button'
 import RaceConfig from '@/components/Race/RaceConfig/RaceConfig'
 import RaceTrack from '@/components/Race/RaceTrack/RaceTrack'
 import { useCarStore } from '@/lib/store/useCarStore'
 
-export default function page() {
+function GarageUI() {
   const cars = useCarStore((state) => state.cars)
 
   return (
@@ -20,5 +21,13 @@ export default function page() {
       <RaceConfig />
       <RaceTrack />
     </>
+  )
+}
+
+export default function page() {
+  return (
+    <Suspense fallback={null}>
+      <GarageUI />
+    </Suspense>
   )
 }

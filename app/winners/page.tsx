@@ -1,10 +1,11 @@
 'use client'
 
+import { Suspense } from 'react'
 import Link from 'next/link'
 import Button from '@/components/Button/Button'
 import RaceTable from '@/components/Race/RaceTable/RaceTable'
 
-export default function page() {
+function Winners() {
   return (
     <>
       <div className="list_x">
@@ -15,5 +16,13 @@ export default function page() {
       </div>
       <RaceTable />
     </>
+  )
+}
+
+export default function page() {
+  return (
+    <Suspense fallback={null}>
+      <Winners />
+    </Suspense>
   )
 }
