@@ -1,8 +1,24 @@
-export type CarsType = {
+export type Car = {
   id: number
-  color: string
   name: string
-  speed: number
+  color: string
+}
+
+export type EngineResponse = {
+  velocity: number
   distance: number
-  isRacing: boolean
+}
+
+export type RaceStatus =
+  | 'idle'
+  | 'starting'
+  | 'racing'
+  | 'broken'
+  | 'finished'
+  | 'stopping'
+
+export type CarRaceState = {
+  status: RaceStatus
+  duration: number
+  startTime: number | null
 }
