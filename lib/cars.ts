@@ -1,5 +1,4 @@
-import { CARS_SPEED } from '@/constants/cars'
-import { getRandomFromArray, minMaxRandom } from './random'
+import { getRandomFromArray } from './random'
 
 const cars = [
   {
@@ -52,20 +51,16 @@ const cars = [
 ]
 
 export function generateRandomCars(number: number = 100) {
-  const generatedCars = []
+  const generated = []
 
   for (let i = 0; i < number; i++) {
     const brand = getRandomFromArray(cars)
     const model = getRandomFromArray(brand.models)
-    generatedCars.push({
-      id: i + 1,
-      color: `hsl(${Math.random() * 360}, 100%, 30%)`,
+    generated.push({
       name: `${brand.brand} ${model}`,
-      speed: minMaxRandom(CARS_SPEED.min, CARS_SPEED.max, 2),
-      distance: 0,
-      isRacing: false,
+      color: `hsl(${Math.floor(Math.random() * 360)}, 100%, 30%)`,
     })
   }
 
-  return generatedCars
+  return generated
 }

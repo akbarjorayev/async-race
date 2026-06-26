@@ -1,11 +1,13 @@
 # 🏁 Async Race
 
+**Score: ~370/400 pts**
+
 🚀 Live Demo: [async-race-akbar.web.app](https://async-race-akbar.web.app)  
 📦 Backend API: [github.com/mikhama/async-race-api](https://github.com/mikhama/async-race-api)
 
 ---
 
-## Checklist \_\_\_/400 pts
+## Checklist
 
 ## 🚀 UI Deployment
 
@@ -48,19 +50,19 @@
 
 ## 🏆 Winners View (50 points)
 
-- [ ] **Display Winners (15 points):** After some car wins it should be displayed at the "Winners view" table.
+- [x] **Display Winners (15 points):** After some car wins it should be displayed at the "Winners view" table.
 - [x] **Pagination for Winners (10 points):** Implement pagination for the "Winners" view, with 10 winners per page.
 - [x] **Winners Table (15 points):** The table should include columns for the car's №, image, name, number of wins, and best time in seconds. If the same car wins more than once the number of wins should be incremented while best time should be saved only if it's better than the stored one.
-- [ ] **Sorting Functionality (10 points):** Allow users to sort the table by the number of wins and best time, in ascending or descending order.
+- [x] **Sorting Functionality (10 points):** Allow users to sort the table by the number of wins and best time, in ascending or descending order.
 
 ## 🚗 Race (170 points)
 
-- [ ] **Start Engine Animation (20 points):** User clicks to the engine start button near each car -> UI is waiting for car's velocity answer -> animate the car and makes another request to drive. In case api returned 500 error car animation should be stopped.
-- [ ] **Stop Engine Animation (20 points):** User clicks to the engine stop button near each car -> UI is waiting for answer for stopping engine -> car returned to it's initial place.
+- [x] **Start Engine Animation (20 points):** User clicks to the engine start button near each car -> UI is waiting for car's velocity answer -> animate the car and makes another request to drive. In case api returned 500 error car animation should be stopped.
+- [x] **Stop Engine Animation (20 points):** User clicks to the engine stop button near each car -> UI is waiting for answer for stopping engine -> car returned to it's initial place.
 - [x] **Responsive Animation (30 points):** Ensure car animations are fluid and responsive on screens as small as 500px.
 - [x] **Start Race Button (10 points):** Start button should start the race for all cars on the current page.
 - [x] **Reset Race Button (15 points):** Reset button should return all cars to their starting positions.
-- [ ] **Winner Announcement (5 points):** After some car finishes first user should see the message contains car's name that shows which one has won.
+- [x] **Winner Announcement (5 points):** After some car finishes first user should see the message contains car's name that shows which one has won.
 - [x] **Button States (20 points):** Start engine button should be disabled in case car is already in driving mode. As well as stop engine button should be disabled when car is on it's initial place.
 - [x] **Actions during the race (50 points):** Control over actions during a running race. Such as, deleting or editing a car, changing a page or view. Adding new cars. You can block buttons and stop the race. The main thing is to ensure predictable operation of the application.
 
@@ -97,27 +99,27 @@ The project is deployed here:
 
 ### 🏎 Garage
 
-- Create, update, delete cars
+- Create, update, delete cars (persisted via mock server API)
 - Random car generator (100 cars)
-- Start/stop individual engine
-- Race controls (start/reset)
+- Start/stop individual engine (via `/engine` API)
+- Race controls (start/reset) using server-driven animation
 - Pagination (7 cars per page)
 - Persistent UI state between navigation
 
 ### 🏆 Winners
 
-- Winners table
-- Wins counter per car
-- Best race time tracking
-- Sorting (wins / best time)
+- Winners stored and fetched from server `/winners` API
+- Wins counter per car (incremented on each win)
+- Best race time tracking (updated if beaten)
+- Sorting by wins / best time (ASC/DESC)
 - Pagination (10 per page)
 
 ### 🏁 Race System
 
-- Engine start/stop API integration
-- Smooth car animations
-- Winner detection system
-- Race reset handling
+- Engine start API → velocity/distance → smooth animation duration
+- Drive API → 500 response stops the car mid-track
+- Winner detection (first successful drive response)
+- Race reset via stop-engine API
 - Responsive design (500px+ supported)
 
 ---
@@ -126,7 +128,7 @@ The project is deployed here:
 
 - Next.js 16 (App Router)
 - TypeScript (strict mode)
-- React 18+
+- React 19
 - Zustand (state management)
 - Firebase Hosting
 
@@ -134,16 +136,22 @@ The project is deployed here:
 
 ## 📦 Setup & Run Locally
 
-### 1. Clone the repository
+### 1. Start the mock server
 
+```bash
+git clone https://github.com/mikhama/async-race-api.git
+cd async-race-api
+npm install
+npm start
 ```
+
+The server runs at `http://localhost:3000`.
+
+### 2. Clone and run the UI
+
+```bash
 git clone https://github.com/akbarjorayev/async-race.git
 cd async-race
-```
-
-### 2. Install dependencies & run development server
-
-```
 npm install
 npm run dev
 ```
